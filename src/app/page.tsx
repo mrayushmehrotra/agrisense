@@ -1,8 +1,11 @@
 import Hero2 from "@/components/Hero2";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
+
       <div className="relative flex items-center justify-center min-h-screen bg-green-900 text-white text-center overflow-hidden">
         {/* Background Video */}
         <video
@@ -13,15 +16,14 @@ export default function Home() {
           muted
           playsInline
         ></video>
-
         {/* Dark Overlay for Better Readability */}
         <div className="absolute inset-0 bg-black/60"></div>
 
         {/* Hero Content */}
-        <div className="relative max-w-3xl px-6">
-          <h1 className="text-5xl font-extrabold sm:text-6xl">
+        <div className="relative  max-w-3xl px-6">
+          <h1 className="text-5xl  font-extrabold   sm:text-6xl">
             Empowering Farmers with{" "}
-            <span className=" bg-[#357446] "> Smart Insights 🌱 </span>
+            <span className=" text-5xl bg-[#357446]"> Smart Insights 🌱 </span>
           </h1>
           <p className="mt-4 text-lg text-gray-200 sm:text-xl">
             Agrisense provides AI-driven solutions to optimize crop growth, soil
@@ -29,7 +31,7 @@ export default function Home() {
           </p>
           <div className="mt-6">
             <a
-              href="#features"
+              href="/dashboard"
               className="px-6 py-3 text-lg font-medium bg-white text-green-700 rounded-lg shadow-lg hover:bg-green-100 transition duration-300"
             >
               Explore Features 🚀

@@ -42,7 +42,6 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
         className="w-full flex items-center justify-between px-7 py-4 transition-all"
       >
-        {/* Logo */}
         <h1 className="text-2xl font-extrabold bg-gradient-to-r from-yellow-300 to-white bg-clip-text text-transparent">
           AgriSense 🌱
         </h1>
