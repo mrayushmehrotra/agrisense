@@ -34,7 +34,7 @@ export default function Home() {
               href="/dashboard"
               className="px-6 py-3 text-lg font-medium bg-white text-green-700 rounded-lg shadow-lg hover:bg-green-100 transition duration-300"
             >
-              Explore Features 🚀
+              Let&apos;s Grow 🚀
             </a>
           </div>
         </div>

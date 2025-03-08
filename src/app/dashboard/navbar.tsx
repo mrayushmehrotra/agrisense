@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="flex items-center space-x-3 p-4">
         {isSignedIn ? (
           <>
-            <span className="text-white">{user.fullName}</span>
+            <span className="text-black font-semibold ">{user.fullName}</span>
             <UserButton />
           </>
         ) : (

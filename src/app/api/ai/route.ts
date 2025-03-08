@@ -25,12 +25,25 @@ export async function POST(request: NextRequest) {
     const weatherDetails = weatherResponse.data;
 
     // Generate AI response using Google Generative AI
-    const prompt = `You are an agricultural expert. Provide detailed irrigation plans and crop suggestions based on the user's location and weather conditions. The user's current location is ${JSON.stringify(location)}. The weather details are ${JSON.stringify(weatherDetails)}. Give me the best irrigation plan for this location and suggest the best crops to grow.`;
+    const prompt = `You are an agricultural expert. Provide detailed irrigation plans and crop suggestions based on the user's location and weather conditions. The user's current location is ${JSON.stringify(location)}. The weather details are ${JSON.stringify(weatherDetails)}. Give me the best irrigation plan for this location and suggest the best crops to grow.
+    Return the response in this JSON format only, no additional text, and in explanation explain a timetable for irrigation plan:
+    {
+      "data": [
+        {
+          "Best Plants to grow": "string",
+          "irrigation watering plan": ["string", "string", "string", "string"],
+          "explanation": "string"
+        }
+      ]
+    }
+    `;
 
     const result = await model.generateContent(prompt);
     const aiMessage = result.response.text();
+    const cleanedText = aiMessage.replace(/```(?:json)?\n?/g, "").trim();
+    const respo = JSON.parse(cleanedText);
 
-    return NextResponse.json({ plan: aiMessage }, { status: 200 });
+    return NextResponse.json({ plan: respo }, { status: 200 });
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json(
